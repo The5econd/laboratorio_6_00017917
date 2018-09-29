@@ -12,6 +12,7 @@ function buscar(){
         console.log('la lista esta vacia, no puede buscar nada')
     }
     else{
+        let flag = 1;
         let nombre = prompt('ingrese nombre que desea buscar');
         for (let i = 0; i < usuarios.length; i++){
             if(usuarios[i].nombre == nombre){
@@ -21,11 +22,12 @@ function buscar(){
                                 '  fecha: '+ usuarios[i].fecha +
                                 '  numero: '+ usuarios[i].numero +
                                 '  correo: '+ usuarios[i].correo);
+                flag = flag +1;
 
             }
-            else{
-                console.log('no se encontro el nombre deseado')
-            }
+        }
+        if (flag == 1){
+            console.log('no se econtro el nombre deseado')
         }
     }
     
@@ -35,6 +37,7 @@ function modificar(){
         console.log('la lista esta vacia, no puede modificar nada')
     }
     else{
+        let flag = 1;
         let nombre = prompt('ingrese nombre del usuario que desea modificar: ');
         for (let i = 0; i < usuarios.length; i++){
             if (usuarios[i].nombre == nombre){
@@ -48,10 +51,11 @@ function modificar(){
                 usuarios[i].fecha = fechaMOD;
                 usuarios[i].numero = numMOD;
                 usuarios[i].correo = corrMOD;
+                flag = flag + 1;
             }
-            else{
-                console.log('no se encontro el nombre deseado');
-            }
+        }
+        if (flag == 1){
+            console.log('no se econtro el nombre deseado')
         }
     }
 }
@@ -60,15 +64,17 @@ function eliminar(){
         console.log('la lista esta vacia por lo tanto no puede eliminar nada')
     }
     else{
+        let flag = 1;
         let nombre = prompt('ingres el nombre del usuario que desea eliminar');
         for(let i = 0; i < usuarios.length; i++){
             if (usuarios[i].nombre == nombre){
                 usuarios.pop(i);
                 console.log('usuario eliminado satisfactoriamente')
+                flag = flag + 1;
             }
-            else{
-                console.log('no se encontro el nombre deseado')
-            }
+        }
+        if (flag == 1){
+            console.log('no se econtro el nombre deseado')
         }
     }
 }
@@ -77,7 +83,14 @@ function mostrar(){
         console.log('la lista esta vacia, no hay nada que mostrar')
     }
     else{
-        console.log('aca estan todos los usuarios:   '+usuarios);
+        console.log('estos son todos los usuarios registrados')
+        for(let i = 0; i < usuarios.length; i++){
+            console.log("nombre: " + usuarios[i].nombre + 
+                        "   apellido: " + usuarios[i].apellido + 
+                        "   fecha de naciemiento: " + usuarios[i].fecha + 
+                        "   numero: " + usuarios[i].numero + 
+                        "   correo: " + usuarios[i].correo)
+        }
     }
 }
 function menu(){
