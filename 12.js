@@ -6,6 +6,7 @@ function agregar(){
         let numero = prompt('numero');
         correo = prompt('correo');
         usuarios.push({nombre, apellido, fecha, numero, correo});
+        console.log('usuario agregado satisfactoriamente')
 }
 function buscar(){
     if(usuarios === undefined || usuarios.length == 0){
@@ -57,6 +58,9 @@ function modificar(){
         if (flag == 1){
             console.log('no se econtro el nombre deseado')
         }
+        else{
+            console.log('usuario modificado satisfactoriamente')
+        }
     }
 }
 function eliminar(){
@@ -68,7 +72,7 @@ function eliminar(){
         let nombre = prompt('ingres el nombre del usuario que desea eliminar');
         for(let i = 0; i < usuarios.length; i++){
             if (usuarios[i].nombre == nombre){
-                usuarios.pop(i);
+                usuarios.splice(i, 1);
                 console.log('usuario eliminado satisfactoriamente')
                 flag = flag + 1;
             }
